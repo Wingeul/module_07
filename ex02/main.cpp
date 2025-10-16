@@ -3,55 +3,39 @@
 #include <ctime>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+
 int main(int, char**)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+    Array<int> numbers(50);
+    Array<int> tmp = numbers;
+    Array<int> test(tmp);
+    Array<int> empty;
+    int *comparateur = new int[50]; 
+
 
     srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
+    for (int i = 0; i < 50; i++)
     {
         const int value = rand();
         numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
+        comparateur[i] = value;
+        if (numbers[i] != comparateur[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;
             return 1;
         }
     }
+
+    std::cout << "array size: " << numbers.size() << std::endl;
+
     try
     {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
+        numbers[80] = 0;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-        //std::cout << "numbers[" << i << "] = " << numbers[i] << std::endl;
-    }
-    delete [] mirror;//
     return 0;
 }

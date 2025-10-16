@@ -6,7 +6,7 @@
 /*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 15:12:47 by paul              #+#    #+#             */
-/*   Updated: 2025/07/17 15:12:57 by paul             ###   ########.fr       */
+/*   Updated: 2025/10/16 13:09:11 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,18 @@
 
 int main()
 {
-    int a = 42, b = 24;
-    std::cout << "Before swap: a = " << a << ", b = " << b << std::endl;
-    swap(a, b);
-    std::cout << "After swap: a = " << a << ", b = " << b << std::endl;
-
-    std::cout << "Min of 42 and 24: " << min(42, 24) << std::endl;
-    std::cout << "Max of 42 and 24: " << max(42, 24) << std::endl;
+    int a = 2;
+    int b = 3;
+    ::swap( a, b );
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+    std::string c = "chaine1";
+    std::string d = "chaine2";
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 
     return 0;
 }

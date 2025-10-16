@@ -6,7 +6,7 @@
 /*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 15:16:26 by paul              #+#    #+#             */
-/*   Updated: 2025/07/17 15:17:00 by paul             ###   ########.fr       */
+/*   Updated: 2025/10/16 13:25:09 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,18 @@ template <typename T> void swap(T &a, T &b)
 
 template <typename T> T min(const T &a, const T &b)
 {
-    return (a < b) ? a : b;
+    if (a < b)
+        return a;
+    else
+        return b;
 }
 
 template <typename T> T max(const T &a, const T &b)
 {
-    return (a > b) ? a : b;
+    if (a > b)
+        return a;
+    else
+        return b;
 }
 
 template <typename T, typename F> void iter(T *array, size_t length, F func)
